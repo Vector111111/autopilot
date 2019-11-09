@@ -1,0 +1,182 @@
+安装一个包与安装一个指定版本的包
+pip install scipy
+pip install scipy==1.1.0
+如何切换python版本(下载了两个版本，from 3.7 to 3.5切换)
+echo alias python=python3.5 >> ~/.bashrc
+source ~/.bashrc
+python --version 
+
+1.0.8.4版本的carla，可以用Alt或者窗口键退出界面，而不停止server
+2../CarlaUE4.sh -carla-server -benchmark -fps=10
+其中的-fps=10得和-benchmark一起用才能有效果，fps数越小，动作越灵敏。
+3.快捷键
+W            : throttle
+S            : brake
+AD           : steer
+Q            : toggle reverse
+Space        : hand-brake
+P            : toggle autopilot
+Arrow keys   : move camera
+PgUp PgDn    : zoom in and out
+mouse wheel  : zoom in and out
+Tab          : toggle on-board camera
+R            : restart level
+G            : toggle HUD
+C            : change weather/lighting
+Enter        : jump
+F            : use the force
+F11          : toggle fullscreen
+Alt+F4       : quit
+
+CAJViewer在ubuntu系统中的使用
+1.sudo apt-get install wine
+2.unzip CAJViewer
+3.wine CAJVieweru.exe
+下载zip文件的链接：http://pan.baidu.com/s/1jIqHxLs
+
+查看当前python下的tensorflow版本
+python 
+import tensorflow as tf
+tf.__version__
+
+利用anaconda进行版本环境之间的切换
+conda create -n env_name python=3.4
+#这里的env_name是根据自己的喜好来命名的，比如可以就是python3.4,这是创建，缺什么的话，会提示下载什么，按y就行了
+source activate env_name
+#这是激活，代表你进入了那个环境
+source deactivate env_name
+代表退出那个环境
+conda remove --name env_name –all
+代表删除了那个环境
+
+if __name__ == '__main__':
+无论如何运用.py文件，这行代码之前的正常执行；如果是直接运行该.py脚本的化，这行代码之后的也正常执行；如果是其他的.py调用了该.py，那么这行代码之后的不再执行。
+可以认为__name__是一个变量，直接引用的时候，if条件成立；import调用的时候，if条件不成立。
+注意：python中并不是一定从main()函数开始执行的，谁在前面先执行谁。
+
+python面向对象编程
+类：用来描述具有相同的属性和方法的对象的集合。
+类对象：通过类定义的数据结构实例。
+
+#定义一个类
+class MyClass:
+    i = 12345
+    def f(self):
+        return 'hello world' 
+
+# 实例化类
+x = MyClass()
+
+# 访问类的属性和方法
+print("MyClass 类的属性 i 为：", x.i)
+print("MyClass 类的方法 f 输出为：", x.f())
+
+
+
+
+基于迁移学习的自适应学习：
+自适应：优化的条件变了之后，还要适应。
+模型建立在人上，而不是针对车的动力学模型。
+基于控制理论的驾驶行为模型
+基于认知理论的驾驶行为模型
+基于机器学习的驾驶行为模型
+（第三种方法的好处：有自适应的能力，有数据就行，重要的是输出类似于人，而不需要对人建模太多）
+数据层面的迁移学习，用一个充分的数据和一个稀疏的数据，得到另外一个充分的数据，利用这个数据训练得到针对
+特定人的模型。涉及的问题：稀疏的数据需要多稀疏；具体的迁移方法。
+但是，迁移学习在复杂交通状况下可行度如何。
+还有就是：模拟器的数据和真车的数据相似性如何。
+迁移学习，还可以用于模拟器数据和真车数据之间的迁移。
+分类器，超平面明显改善
+
+强化学习程序学习：
+
+using Raw Image as state spaces to train DDPG Agent
+用原始图像作为状态空间来训练深度强化学习的对象。
+In order to evaluate the performance of the RL method, we first used supervised learning to train a network as baseline
+通过以网络训练为基线的监督学习来评判RL的运行效果。
+Then we investigate the performance of RL methods (DDPG), both with and without pretraining.
+然后，比较有无RL算法的性能。
+
+1:	./CarlaUE4.sh -carla-server -benchmark -fps=10
+2:	python ddpg_main.py
+3:	Start the Carla server
+4:	python test_ddpg.py -model_path='models/'
+
+通俗地理解Actor和Critic:
+参考链接：https://www.jianshu.com/p/8750b3fb5d07
+Actor&Critic的含义：
+Actor（玩家）：为了玩转这个游戏得到尽量高的reward，你需要实现一个函数：输入state，输出action，即上面的第2步。可以用神经网络来近似这个函数。剩下的任务就是如何训练神经网络，
+让它的表现更好（得更高的reward）。这个网络就被称为actor
+Critic（评委）：为了训练actor，你需要知道actor的表现到底怎么样，根据表现来决定对神经网络参数的调整。这就要用到强化学习中的“Q-value”。但Q-value也是一个未知的函数，所以也
+可以用神经网络来近似。这个网络被称为critic。
+Actor-Critic的训练：
+Actor看到游戏目前的state，做出一个action。
+Critic根据state和action两者，对actor刚才的表现打一个分数。
+Actor依据critic（评委）的打分，调整自己的策略（actor神经网络参数），争取下次做得更好。
+Critic根据系统给出的reward（相当于ground truth）和其他评委的打分（critic target）来调整自己的打分策略（critic神经网络参数）。
+一开始actor随机表演，critic随机打分。但是由于reward的存在，critic评分越来越准，actor表现越来越好。
+
+以游戏入手，从概念出发，介绍强化学习的一些基础但重要的理解：
+参考链接：https://www.sohu.com/a/146031072_642762
+强化学习（Reinforcement Learning）与监督学习（Supervised Learning）一个非常明显的区别就是：
+强化学习没有标签，只有一个带有“时间延迟”特性的奖励值。
+
+python中的 with as 的用法：
+with open("/tmp/foo.txt") as file:
+  data = file.read()
+这里相当于
+file = open("/tmp/foo.txt")
+try:
+    data = file.read()
+finally:
+    file.close() 
+#关于try except else finally 的用法：try以内的话是正常执行的，如果有错误，报错之前的try执行过了，之后的try内容不再执行。然后，如果错误是except范围内的，就转执行except内容，不是的化就执行else内容，
+最后的finally内容是一定执行的。
+
+time.sleep(1)
+#推迟执行1s，或者说是暂停一秒,目的是让上一步的输出停留着，比如print的error字样。
+
+def fab(max): 
+    n, a, b = 0, 0, 1 
+    while n < max: 
+        yield b       #使用 yield
+        #print (b) 
+        a, b = b, a + b 
+        n = n + 1
+for n in fab(5): 
+    print (n)
+#这里是yield的用法，有yield的函数代表的是一个生成器，生成的是一个列表性质的。它里面肯定有一个比如n或者t的东西，推动列表的前进。引用的时候可以利用 for n in fun(xxx)：，然后该输出的是n，代表的意思是
+第几个yield的内容。在函数里面，先进行了初值定义之后，然后yield b 代表的含义就是一直把b记录出来，和n挂上勾。
+
+DDPG（Deep Deterministic Policy Gradient）
+创新点：把DQN（深度Q学习）成功地引入了连续动作空间中，但是用的不是Q-Learning的算法框架，使用的是基于确定动作策略的actor-critic算法框架；并且，在actor部分采用的是DPG的确定性策略方式。
+背景知识：DQN本身不能用于处理连续的场合，主要原因是它需要在每一次最优迭代寻找动作值函数最大的值，而在连续的动作空间，没有办法输出每一个动作值函数。
+算法结构：critic部分有2个神经网络，critic network Q and target network Q' ; actor部分有2个神经网络，actor network u and target network u'    
+在论文中：
+critic network Q 
+输入的是：  1_当前的状态，2_实际执行的动作，3_actor network 输出的 u;
+输出的是：  1_动作-状态值函数Q（因为输入的是两种动作，所以输出的也是两种动作-状态值函数，分别用于计算TD error和 actor部分的参数更新）
+target network Q'
+输入的是：  1_下一状态，2_actor部分中 target network u' 做出的策略；
+输出的是：  1_用于计算target值的Q'
+actor network u
+输入的是：  1_当前状态；
+输出的是：  1_输出的就是u，和 critic network Q 输出的 Q 一起更新actor神经网络的参数 
+target network u' 
+输入的是：  1_下一状态； 
+输出的是：  2_输出的就是u'，用于计算critic部分的Q'
+进行一个TD_error的反向误差传递,更新critic的参数，也就是更新奖励值。
+TD_error指代的是：critic部分的 target_q - eval_q 
+target_q：它的输入是_s，即下一个状态，和actor，因为actor里面的a是根据_s得到的，在actor里面存着 
+eval_q ：s,a正常输入
+DQN实际上指代的就是a狗那个，两个神经网络，一个是具有延迟的神经网络，收敛性更好
+target是一个不实时更新的网络，而eval是一个实时更新的网络，在actor部分的化，分别相当于target network u' and actor network u。相同的网络结构，区别于更新频率。
+而那个actor的更新借助的是：policy gradient,具体更新的其实就是actor的eval network，输入的是当前状态s，以及critic给出的动作的梯度a_grad,这个梯度与actor的参数梯度一起构成了actor公式前后两部分。
+actor and critic 在python程序中都是以类的形式出现的。
+tensorboard里面利用Trace Inputs
+placeholder代码部分就是在tensorboard里面定义一个个小框框，比如A,S,_S等。
+确定性策略，π(s)S→A 策略输出即是动作；优点，需要采样的数据少，算法效率高；缺点，无法探索环境。
+随机性策略，∑π(a|s)=1 策略输出的是动作的概率，使用正态分布对动作进行采样选择，即每个动作都有概率被选到。
+
+
+
