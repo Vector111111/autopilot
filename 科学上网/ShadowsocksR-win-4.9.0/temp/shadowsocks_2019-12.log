@@ -1,0 +1,56 @@
+[2019-12-18 13:48:15] [Error] System.NullReferenceException: Object reference not set to an instance of an object
+  at System.Runtime.InteropServices.Marshal.ReadInt32 (System.IntPtr ptr) [0x0000d] in <9727e7c25d434f57880423f7c033fc46>:0 
+  at System.Net.NetworkInformation.Win32IPGlobalProperties.FillTcpTable (System.Collections.Generic.List`1[System.Net.NetworkInformation.Win32IPGlobalProperties+Win32_MIB_TCPROW]& tab4, System.Collections.Generic.List`1[System.Net.NetworkInformation.Win32IPGlobalProperties+Win32_MIB_TCP6ROW]& tab6) [0x000fb] in <d6e1ee6718364b74ad99576b8fa4c75c>:0 
+  at System.Net.NetworkInformation.Win32IPGlobalProperties.GetActiveTcpListeners () [0x00004] in <d6e1ee6718364b74ad99576b8fa4c75c>:0 
+  at Shadowsocks.Controller.HttpProxyRunner.GetFreePort () [0x0000c] in <b7507cc5896d4cb6a2e4ee7afb9639e4>:0 
+[2019-12-18 13:48:15] [Error] System.Net.Sockets.SocketException (0x80004005): Error looking up error string
+  at System.Net.Sockets.Socket.Bind (System.Net.EndPoint localEP) [0x00043] in <d6e1ee6718364b74ad99576b8fa4c75c>:0 
+  at Shadowsocks.Controller.Listener.Start (Shadowsocks.Model.Configuration config, System.Int32 port) [0x000f0] in <b7507cc5896d4cb6a2e4ee7afb9639e4>:0 
+[2019-12-18 13:48:15] [Error] System.Exception: 端口已被占用 1080 ---> System.Net.Sockets.SocketException: Error looking up error string
+  at System.Net.Sockets.Socket.Bind (System.Net.EndPoint localEP) [0x00043] in <d6e1ee6718364b74ad99576b8fa4c75c>:0 
+  at Shadowsocks.Controller.Listener.Start (Shadowsocks.Model.Configuration config, System.Int32 port) [0x001a5] in <b7507cc5896d4cb6a2e4ee7afb9639e4>:0 
+  at Shadowsocks.Controller.ShadowsocksController.Reload () [0x0026d] in <b7507cc5896d4cb6a2e4ee7afb9639e4>:0 
+   --- End of inner exception stack trace ---
+[2019-12-18 13:48:22] [Error] System.NullReferenceException: Object reference not set to an instance of an object
+  at Shadowsocks.Controller.SystemProxy.IEProxyUpdate (Shadowsocks.Model.Configuration config, System.Int32 sysProxyMode) [0x0000c] in <b7507cc5896d4cb6a2e4ee7afb9639e4>:0 
+  at Shadowsocks.Controller.SystemProxy.Update (Shadowsocks.Model.Configuration config, System.Boolean forceDisable) [0x00137] in <b7507cc5896d4cb6a2e4ee7afb9639e4>:0 
+[2019-12-18 13:48:22] [Error] InternetSetOption:INTERNET_OPTION_PROXY_SETTINGS_CHANGED
+[2019-12-18 13:48:22] [Error] InternetSetOption:INTERNET_OPTION_REFRESH
+[2019-12-18 13:48:25] [Error] connect to update server error
+[2019-12-18 13:48:44] [Error] System.NullReferenceException: Object reference not set to an instance of an object
+  at System.Runtime.InteropServices.Marshal.ReadInt32 (System.IntPtr ptr) [0x0000d] in <9727e7c25d434f57880423f7c033fc46>:0 
+  at System.Net.NetworkInformation.Win32IPGlobalProperties.FillTcpTable (System.Collections.Generic.List`1[System.Net.NetworkInformation.Win32IPGlobalProperties+Win32_MIB_TCPROW]& tab4, System.Collections.Generic.List`1[System.Net.NetworkInformation.Win32IPGlobalProperties+Win32_MIB_TCP6ROW]& tab6) [0x000fb] in <d6e1ee6718364b74ad99576b8fa4c75c>:0 
+  at System.Net.NetworkInformation.Win32IPGlobalProperties.GetActiveTcpListeners () [0x00004] in <d6e1ee6718364b74ad99576b8fa4c75c>:0 
+  at Shadowsocks.Controller.HttpProxyRunner.GetFreePort () [0x0000c] in <b7507cc5896d4cb6a2e4ee7afb9639e4>:0 
+[2019-12-18 13:48:44] [Error] System.Net.Sockets.SocketException (0x80004005): Error looking up error string
+  at System.Net.Sockets.Socket.Bind (System.Net.EndPoint localEP) [0x00043] in <d6e1ee6718364b74ad99576b8fa4c75c>:0 
+  at Shadowsocks.Controller.Listener.Start (Shadowsocks.Model.Configuration config, System.Int32 port) [0x000f0] in <b7507cc5896d4cb6a2e4ee7afb9639e4>:0 
+[2019-12-18 13:48:44] [Error] System.Exception: 端口已被占用 1080 ---> System.Net.Sockets.SocketException: Error looking up error string
+  at System.Net.Sockets.Socket.Bind (System.Net.EndPoint localEP) [0x00043] in <d6e1ee6718364b74ad99576b8fa4c75c>:0 
+  at Shadowsocks.Controller.Listener.Start (Shadowsocks.Model.Configuration config, System.Int32 port) [0x001a5] in <b7507cc5896d4cb6a2e4ee7afb9639e4>:0 
+  at Shadowsocks.Controller.ShadowsocksController.Reload () [0x0026d] in <b7507cc5896d4cb6a2e4ee7afb9639e4>:0 
+   --- End of inner exception stack trace ---
+[2019-12-18 13:48:49] [Error] System.NullReferenceException: Object reference not set to an instance of an object
+  at Shadowsocks.Controller.SystemProxy.IEProxyUpdate (Shadowsocks.Model.Configuration config, System.Int32 sysProxyMode) [0x0000c] in <b7507cc5896d4cb6a2e4ee7afb9639e4>:0 
+  at Shadowsocks.Controller.SystemProxy.Update (Shadowsocks.Model.Configuration config, System.Boolean forceDisable) [0x00137] in <b7507cc5896d4cb6a2e4ee7afb9639e4>:0 
+[2019-12-18 13:48:49] [Error] InternetSetOption:INTERNET_OPTION_PROXY_SETTINGS_CHANGED
+[2019-12-18 13:48:49] [Error] InternetSetOption:INTERNET_OPTION_REFRESH
+[2019-12-18 13:52:29] [Error] System.NullReferenceException: Object reference not set to an instance of an object
+  at System.Runtime.InteropServices.Marshal.ReadInt32 (System.IntPtr ptr) [0x0000d] in <9727e7c25d434f57880423f7c033fc46>:0 
+  at System.Net.NetworkInformation.Win32IPGlobalProperties.FillTcpTable (System.Collections.Generic.List`1[System.Net.NetworkInformation.Win32IPGlobalProperties+Win32_MIB_TCPROW]& tab4, System.Collections.Generic.List`1[System.Net.NetworkInformation.Win32IPGlobalProperties+Win32_MIB_TCP6ROW]& tab6) [0x000fb] in <d6e1ee6718364b74ad99576b8fa4c75c>:0 
+  at System.Net.NetworkInformation.Win32IPGlobalProperties.GetActiveTcpListeners () [0x00004] in <d6e1ee6718364b74ad99576b8fa4c75c>:0 
+  at Shadowsocks.Controller.HttpProxyRunner.GetFreePort () [0x0000c] in <b7507cc5896d4cb6a2e4ee7afb9639e4>:0 
+[2019-12-18 13:52:29] [Error] System.Net.Sockets.SocketException (0x80004005): Error looking up error string
+  at System.Net.Sockets.Socket.Bind (System.Net.EndPoint localEP) [0x00043] in <d6e1ee6718364b74ad99576b8fa4c75c>:0 
+  at Shadowsocks.Controller.Listener.Start (Shadowsocks.Model.Configuration config, System.Int32 port) [0x000f0] in <b7507cc5896d4cb6a2e4ee7afb9639e4>:0 
+[2019-12-18 13:52:29] [Error] System.Exception: 端口已被占用 1080 ---> System.Net.Sockets.SocketException: Error looking up error string
+  at System.Net.Sockets.Socket.Bind (System.Net.EndPoint localEP) [0x00043] in <d6e1ee6718364b74ad99576b8fa4c75c>:0 
+  at Shadowsocks.Controller.Listener.Start (Shadowsocks.Model.Configuration config, System.Int32 port) [0x001a5] in <b7507cc5896d4cb6a2e4ee7afb9639e4>:0 
+  at Shadowsocks.Controller.ShadowsocksController.Reload () [0x0026d] in <b7507cc5896d4cb6a2e4ee7afb9639e4>:0 
+   --- End of inner exception stack trace ---
+[2019-12-18 13:52:38] [Error] System.NullReferenceException: Object reference not set to an instance of an object
+  at Shadowsocks.Controller.SystemProxy.IEProxyUpdate (Shadowsocks.Model.Configuration config, System.Int32 sysProxyMode) [0x0000c] in <b7507cc5896d4cb6a2e4ee7afb9639e4>:0 
+  at Shadowsocks.Controller.SystemProxy.Update (Shadowsocks.Model.Configuration config, System.Boolean forceDisable) [0x00137] in <b7507cc5896d4cb6a2e4ee7afb9639e4>:0 
+[2019-12-18 13:52:38] [Error] InternetSetOption:INTERNET_OPTION_PROXY_SETTINGS_CHANGED
+[2019-12-18 13:52:38] [Error] InternetSetOption:INTERNET_OPTION_REFRESH
+[2019-12-18 13:52:39] [Error] connect to update server error
